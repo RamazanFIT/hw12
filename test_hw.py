@@ -5,10 +5,10 @@ class TestFunctions(unittest.TestCase):
     # Exercise-1
     def test_squares(self):
         self.assertEqual(hw.squares(5), [0, 1, 4, 9, 16])
-        self.assertEqual(hw.squares(1000), [i**2 for i in range(1001)])
-        self.assertEqual(hw.squares(10000), [i**2 for i in range(10001)])
-        self.assertEqual(hw.squares(0), [i**2 for i in range(1)])
-        self.assertEqual(hw.squares(5000), [i**2 for i in range(5001)])
+        self.assertEqual(hw.squares(1001), [i**2 for i in range(1001)])
+        self.assertEqual(hw.squares(10001), [i**2 for i in range(10001)])
+        self.assertEqual(hw.squares(1), [i**2 for i in range(1)])
+        self.assertEqual(hw.squares(5001), [i**2 for i in range(5001)])
 
     # Exercise-2
     def test_unique_squares(self):
@@ -37,10 +37,10 @@ class TestFunctions(unittest.TestCase):
     # Exercise-5
     def test_squares_gen(self):
         self.assertEqual(list(hw.squares_gen(5)), [0, 1, 4, 9, 16])
-        self.assertEqual(list(hw.squares_gen(1000)), [i**2 for i in range(1001)])
-        self.assertEqual(list(hw.squares_gen(2000)), [i**2 for i in range(2001)])
-        self.assertEqual(list(hw.squares_gen(0)), [i**2 for i in range(1)])
-        self.assertEqual(list(hw.squares_gen(3000)), [i**2 for i in range(3001)])
+        self.assertEqual(list(hw.squares_gen(1001)), [i**2 for i in range(1001)])
+        self.assertEqual(list(hw.squares_gen(2001)), [i**2 for i in range(2001)])
+        self.assertEqual(list(hw.squares_gen(1)), [i**2 for i in range(1)])
+        self.assertEqual(list(hw.squares_gen(3001)), [i**2 for i in range(3001)])
 
     # Exercise-6
     def test_odd_squares(self):
@@ -53,10 +53,10 @@ class TestFunctions(unittest.TestCase):
     # Exercise-7
     def test_index_map(self):
         self.assertEqual(hw.index_map("hello"), {'h': 0, 'e': 1, 'l': 3, 'o': 4})
-        self.assertEqual(hw.index_map("a"*1000 + "b"*1000), {char: 999 for char in "ab"})
-        self.assertEqual(hw.index_map("abcde"*200), {char: 999 for char in "abcde"})
+        self.assertEqual(hw.index_map("a"*1000 + "b"*1000), {"a" : 999, "b" : 1999})
+        self.assertEqual(hw.index_map("abcde"*200), {'a': 995, 'b': 996, 'c': 997, 'd': 998, 'e': 999})
         self.assertEqual(hw.index_map("a"), {'a': 0})
-        self.assertEqual(hw.index_map("abcdef"*300), {char: 1799 for char in "abcdef"})
+        self.assertEqual(hw.index_map("abcdef"*300), {'a': 1794, 'b': 1795, 'c': 1796, 'd': 1797, 'e': 1798, 'f': 1799})
 
     # Exercise-8
     def test_unique_values(self):
@@ -70,16 +70,16 @@ class TestFunctions(unittest.TestCase):
     def test_fibonacci_gen(self):
         self.assertEqual(list(hw.fibonacci_gen(10)), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
         fibs = [0, 1]
-        for _ in range(2, 1001):
+        for _ in range(2, 1000):
             fibs.append(fibs[-1] + fibs[-2])
         self.assertEqual(list(hw.fibonacci_gen(1000)), fibs)
         fibs = [0, 1]
-        for _ in range(2, 2001):
+        for _ in range(2, 2000):
             fibs.append(fibs[-1] + fibs[-2])
         self.assertEqual(list(hw.fibonacci_gen(2000)), fibs)
-        self.assertEqual(list(hw.fibonacci_gen(1)), [0, 1])
+        self.assertEqual(list(hw.fibonacci_gen(1)), [0, ])
         fibs = [0, 1]
-        for _ in range(2, 3001):
+        for _ in range(2, 3000):
             fibs.append(fibs[-1] + fibs[-2])
         self.assertEqual(list(hw.fibonacci_gen(3000)), fibs)
 
